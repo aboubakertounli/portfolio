@@ -1,0 +1,28 @@
+---
+---
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>TOUNLI Aboubaker</title>
+    <script is:inline>
+      (function () {
+        var stored = localStorage.getItem('locale');
+        var nav = (navigator.language || 'fr').toLowerCase();
+        var loc =
+          stored === 'fr' || stored === 'en'
+            ? stored
+            : nav.indexOf('fr') === 0
+              ? 'fr'
+              : nav.indexOf('en') === 0
+                ? 'en'
+                : 'fr';
+        location.replace('/' + loc + '/');
+      })();
+    </script>
+  </head>
+  <body style="background:#10100e;color:#eceae4;font-family:system-ui,sans-serif;padding:2rem">
+    <p><a href="/fr/" style="color:#d7b07a">Français</a> · <a href="/en/" style="color:#d7b07a">English</a></p>
+  </body>
+</html>

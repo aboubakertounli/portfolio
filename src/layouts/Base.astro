@@ -1,0 +1,26 @@
+---
+import '../styles/global.css';
+import { copy } from '../i18n/content';
+import type { Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = copy(locale);
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={t.meta.description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{t.meta.title}</title>
+  </head>
+  <body class="min-h-screen antialiased">
+    <slot />
+  </body>
+</html>

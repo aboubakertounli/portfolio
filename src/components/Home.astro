@@ -1,0 +1,141 @@
+---
+import Header from './Header.astro';
+import { copy } from '../i18n/content';
+import type { Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = copy(locale);
+const cvHref = locale === 'fr' ? t.links.cvFr : t.links.cvEn;
+---
+
+<Header locale={locale} />
+<main class="mx-auto max-w-3xl px-5 py-16">
+  <section id="about" class="scroll-mt-8">
+    <p class="font-mono text-xs uppercase tracking-[0.18em] text-accent">{t.home.location}</p>
+    <h1 class="mt-3 text-4xl font-medium tracking-tight text-ink">TOUNLI Aboubaker</h1>
+    <p class="mt-3 max-w-xl text-lg text-mute">{t.home.role}</p>
+    <p class="mt-8 max-w-2xl text-[17px] leading-7 text-ink/90">{t.home.about}</p>
+    <p class="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+      <a class="text-accent hover:text-ink" href={cvHref}>{t.home.cv}</a>
+      <a class="text-accent hover:text-ink" href={t.links.github}>{t.home.github}</a>
+      <a class="text-accent hover:text-ink" href={t.links.linkedin}>{t.home.linkedin}</a>
+    </p>
+  </section>
+
+  <section id="experience" class="mt-20 scroll-mt-8">
+    <h2 class="font-mono text-xs uppercase tracking-[0.18em] text-mute">{t.nav.experience}</h2>
+    <div class="mt-6 space-y-12">
+      {
+        t.experience.map((job) => (
+          <article>
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="text-lg font-medium text-ink">{job.title}</h3>
+              <p class="font-mono text-xs text-mute">{job.dates}</p>
+            </div>
+            <p class="mt-1 text-sm text-mute">
+              {job.org} · {job.place}
+            </p>
+            <ul class="mt-4 space-y-2 text-[15px] leading-6 text-ink/85">
+              {job.points.map((point) => (
+                <li class="grid grid-cols-[0.75rem_1fr] gap-x-1">
+                  <span class="text-accent" aria-hidden="true">–</span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section id="projects" class="mt-20 scroll-mt-8">
+    <h2 class="font-mono text-xs uppercase tracking-[0.18em] text-mute">{t.nav.projects}</h2>
+    <div class="mt-6 space-y-10">
+      {
+        t.projects.map((project) => (
+          <article class="border-t border-line pt-6">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="text-lg font-medium text-ink">
+                {project.href ? (
+                  <a class="hover:text-accent" href={project.href}>
+                    {project.title}
+                  </a>
+                ) : (
+                  project.title
+                )}
+              </h3>
+              {project.href && (
+                <a class="font-mono text-xs text-accent hover:text-ink" href={project.href}>
+                  {t.nav.caseStudy}
+                </a>
+              )}
+            </div>
+            <p class="mt-1 font-mono text-xs text-mute">{project.stack}</p>
+            <ul class="mt-4 space-y-2 text-[15px] leading-6 text-ink/85">
+              {project.points.map((point) => (
+                <li class="grid grid-cols-[0.75rem_1fr] gap-x-1">
+                  <span class="text-accent" aria-hidden="true">–</span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section id="skills" class="mt-20 scroll-mt-8">
+    <h2 class="font-mono text-xs uppercase tracking-[0.18em] text-mute">{t.nav.skills}</h2>
+    <dl class="mt-6 space-y-4">
+      {
+        t.skills.map((group) => (
+          <div class="grid gap-1 sm:grid-cols-[11rem_1fr]">
+            <dt class="text-sm text-mute">{group.label}</dt>
+            <dd class="text-[15px] leading-6 text-ink/90">{group.items}</dd>
+          </div>
+        ))
+      }
+    </dl>
+    <p class="mt-8 text-sm text-mute">{t.languages}</p>
+    <div class="mt-10 space-y-4 border-t border-line pt-8">
+      {
+        t.education.map((item) => (
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <div>
+              <p class="text-sm font-medium text-ink">{item.school}</p>
+              <p class="text-sm text-mute">{item.detail}</p>
+            </div>
+            <p class="font-mono text-xs text-mute">
+              {item.dates} · {item.place}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section id="contact" class="mt-20 scroll-mt-8 border-t border-line pt-10">
+    <h2 class="font-mono text-xs uppercase tracking-[0.18em] text-mute">{t.nav.contact}</h2>
+    <p class="mt-4 text-[15px] text-ink/90">{t.contact.lead}</p>
+    <ul class="mt-5 space-y-2 text-sm">
+      <li>
+        <a class="text-accent hover:text-ink" href={t.links.email}>{t.links.emailLabel}</a>
+      </li>
+      <li>
+        <a class="text-accent hover:text-ink" href={t.links.phone}>{t.links.phoneLabel}</a>
+      </li>
+      <li>
+        <a class="text-accent hover:text-ink" href={t.links.linkedin}>linkedin.com/in/aboubaker-tounli</a>
+      </li>
+      <li>
+        <a class="text-accent hover:text-ink" href={t.links.github}>github.com/aboubakertounli</a>
+      </li>
+    </ul>
+  </section>
+</main>
