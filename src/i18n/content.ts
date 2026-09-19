@@ -110,7 +110,7 @@ export const projects = {
       slug: "devsecops-gitops",
       title: "Pipeline DevSecOps × GitOps",
       stack: "GitHub Actions, SonarCloud, Trivy, Argo CD, Kubernetes, Docker",
-      href: "/fr/projects/devsecops-gitops/",
+      caseStudy: true,
       points: [
         "Pipeline CI qui automatise tests, analyse statique, scan d’image et publication Docker, sans déployer directement sur le cluster.",
         "Livraison continue par GitOps : un dépôt de manifests comme source de vérité, synchronisé par Argo CD, avec contrôles d’admission et observabilité.",
@@ -120,7 +120,7 @@ export const projects = {
       slug: "aws-microservices",
       title: "Architecture microservices et CI/CD sur AWS",
       stack: "ECS, ECR, ALB, CodePipeline, Docker, Node.js",
-      href: null,
+      caseStudy: false,
       points: [
         "Découpage d’un monolithe en microservices conteneurisés sur Amazon ECS, images dans ECR, trafic via un Application Load Balancer.",
         "Pipeline CodeCommit / CodeDeploy / CodePipeline avec déploiements blue/green pour éviter les interruptions.",
@@ -130,7 +130,7 @@ export const projects = {
       slug: "openstack",
       title: "Cloud privé avec OpenStack",
       stack: "OpenStack, Terraform, virtualisation, réseaux",
-      href: null,
+      caseStudy: false,
       points: [
         "Déploiement All-in-One couvrant virtualisation, gestion des ressources, réseaux et groupes de sécurité, puis automatisation de la configuration avec Terraform.",
       ],
@@ -141,7 +141,7 @@ export const projects = {
       slug: "devsecops-gitops",
       title: "DevSecOps × GitOps pipeline",
       stack: "GitHub Actions, SonarCloud, Trivy, Argo CD, Kubernetes, Docker",
-      href: "/en/projects/devsecops-gitops/",
+      caseStudy: true,
       points: [
         "CI pipeline that automates tests, static analysis, image scanning, and Docker publishing — and never deploys straight to the cluster.",
         "Continuous delivery through GitOps: a manifests repo as source of truth, synced by Argo CD, with admission control and observability.",
@@ -151,7 +151,7 @@ export const projects = {
       slug: "aws-microservices",
       title: "Microservices architecture and CI/CD on AWS",
       stack: "ECS, ECR, ALB, CodePipeline, Docker, Node.js",
-      href: null,
+      caseStudy: false,
       points: [
         "Split a monolith into containerized microservices on Amazon ECS, storing images in ECR and routing traffic through an Application Load Balancer.",
         "Automated pipeline with CodeCommit, CodeDeploy, and CodePipeline, using blue/green deployments to avoid downtime.",
@@ -161,7 +161,7 @@ export const projects = {
       slug: "openstack",
       title: "Private cloud with OpenStack",
       stack: "OpenStack, Terraform, virtualization, networking",
-      href: null,
+      caseStudy: false,
       points: [
         "All-in-one OpenStack private cloud covering virtualization, resource management, networking, and security groups, then automated configuration with Terraform.",
       ],
@@ -339,8 +339,8 @@ export const links = {
   github: "https://github.com/aboubakertounli",
   appRepo: "https://github.com/aboubakertounli/DevSecOps-x-GitOps",
   gitopsRepo: "https://github.com/aboubakertounli/DevSecOps-x-GitOps-gitops",
-  cvFr: "/cv/CV_PFE_Aboubaker_TOUNLI_FR.pdf",
-  cvEn: "/cv/CV_PFE_Aboubaker_TOUNLI_EN.pdf",
+  cvFr: "cv/CV_PFE_Aboubaker_TOUNLI_FR.pdf",
+  cvEn: "cv/CV_PFE_Aboubaker_TOUNLI_EN.pdf",
 } as const;
 
 export function copy(locale: Locale) {

@@ -2,6 +2,7 @@
 import Header from './Header.astro';
 import { copy } from '../i18n/content';
 import type { Locale } from '../i18n';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 interface Props {
   locale: Locale;
@@ -9,7 +10,7 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = copy(locale);
-const cvHref = locale === 'fr' ? t.links.cvFr : t.links.cvEn;
+const cvHref = `${import.meta.env.BASE_URL}${locale === 'fr' ? t.links.cvFr : t.links.cvEn}`;
 ---
 
 <Header locale={locale} />
@@ -61,16 +62,16 @@ const cvHref = locale === 'fr' ? t.links.cvFr : t.links.cvEn;
           <article class="border-t border-line pt-6">
             <div class="flex flex-wrap items-baseline justify-between gap-2">
               <h3 class="text-lg font-medium text-ink">
-                {project.href ? (
-                  <a class="hover:text-accent" href={project.href}>
+                {project.caseStudy ? (
+                  <a class="hover:text-accent" href={getRelativeLocaleUrl(locale, `projects/${project.slug}`)}>
                     {project.title}
                   </a>
                 ) : (
                   project.title
                 )}
               </h3>
-              {project.href && (
-                <a class="font-mono text-xs text-accent hover:text-ink" href={project.href}>
+              {project.caseStudy && (
+                <a class="font-mono text-xs text-accent hover:text-ink" href={getRelativeLocaleUrl(locale, `projects/${project.slug}`)}>
                   {t.nav.caseStudy}
                 </a>
               )}

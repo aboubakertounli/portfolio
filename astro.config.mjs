@@ -2,6 +2,8 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
+  site: "https://aboubakertounli.github.io",
+  base: "/portfolio",
   trailingSlash: "always",
   i18n: {
     defaultLocale: "fr",

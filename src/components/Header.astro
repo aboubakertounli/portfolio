@@ -10,7 +10,12 @@ interface Props {
 const { locale } = Astro.props;
 const t = copy(locale);
 const other: Locale = locale === 'fr' ? 'en' : 'fr';
-const rest = Astro.url.pathname.replace(/^\/(fr|en)/, '') || '/';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+let path = Astro.url.pathname;
+if (base && path.startsWith(base)) {
+  path = path.slice(base.length) || '/';
+}
+const rest = path.replace(/^\/(fr|en)/, '') || '/';
 const otherHref = getRelativeLocaleUrl(other, rest);
 const homeHref = getRelativeLocaleUrl(locale, '/');
 ---

@@ -7,7 +7,9 @@ npm ci
 npm run dev
 ```
 
-Deploy: import this GitHub repo on [Vercel](https://vercel.com). Framework preset: Astro.
+Deploy: this repo publishes to GitHub Pages on every push to `main`.
+
+Live URL: https://aboubakertounli.github.io/portfolio/
 
 The DevSecOps case study links to:
 
