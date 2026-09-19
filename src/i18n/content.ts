@@ -4,12 +4,12 @@ export const meta = {
   fr: {
     title: "TOUNLI Aboubaker — Cloud & DevOps",
     description:
-      "Élève ingénieur INPT, stage PFE Cloud / DevOps / SRE. 3e prix mondial Huawei ICT (Cloud). Stage FinOps chez Clever Cloud Morocco.",
+      "Élève ingénieur INPT en systèmes distribués. Stagiaire Cloud & DevOps chez Clever Cloud Morocco. 3e mondial, Huawei ICT Competition 2026, Cloud Track.",
   },
   en: {
     title: "TOUNLI Aboubaker — Cloud & DevOps",
     description:
-      "INPT engineering student seeking a Cloud / DevOps / SRE PFE internship. 3rd worldwide, Huawei ICT Competition (Cloud). FinOps intern at Clever Cloud Morocco.",
+      "Final-year engineering student at INPT specializing in Distributed Systems. Cloud & DevOps intern at Clever Cloud Morocco. 3rd worldwide, Huawei ICT Competition 2026, Cloud Track.",
   },
 } as const;
 
@@ -33,32 +33,32 @@ export const nav = {
 export const home = {
   fr: {
     available: "Ouvert au PFE",
-    role: "Cloud, DevOps, SRE & platform engineering",
+    role: "Cloud & DevOps",
     location: "Rabat, Maroc",
     about:
-      "Dernière année à l’INPT (systèmes distribués, Cloud et IoT). Stage FinOps chez Clever Cloud Morocco, 3e prix mondial Huawei ICT Competition (Cloud). Je cherche un stage de fin d’études.",
+      "Élève ingénieur en dernière année à l’INPT, spécialisé en systèmes distribués. Stagiaire ingénieur Cloud & DevOps chez Clever Cloud Morocco, 3e mondial à la Huawei ICT Competition 2026, Cloud Track. À la recherche d’un stage de fin d’études.",
     cv: "Télécharger le CV",
     github: "GitHub",
     linkedin: "LinkedIn",
     viewCode: "Code source",
     highlights: [
-      { value: "3e", label: "prix mondial Huawei ICT · Cloud" },
+      { value: "3e", label: "mondial Huawei ICT 2026 · Cloud Track" },
       { value: "~10%", label: "économies FinOps, premier test" },
       { value: "INPT", label: "Cloud, IoT & systèmes distribués" },
     ],
   },
   en: {
     available: "Open to PFE internships",
-    role: "Cloud, DevOps, SRE & platform engineering",
+    role: "Cloud & DevOps",
     location: "Rabat, Morocco",
     about:
-      "Final-year INPT student (distributed systems, Cloud and IoT). FinOps intern at Clever Cloud Morocco, 3rd worldwide at the Huawei ICT Competition (Cloud). Looking for a graduation internship.",
+      "Final-year engineering student at INPT specializing in Distributed Systems. Cloud & DevOps engineer intern at Clever Cloud Morocco, 3rd worldwide at the Huawei ICT Competition 2026, Cloud Track. Looking for a graduation end-of-studies internship.",
     cv: "Download resume",
     github: "GitHub",
     linkedin: "LinkedIn",
     viewCode: "Source code",
     highlights: [
-      { value: "3rd", label: "worldwide Huawei ICT · Cloud" },
+      { value: "3rd", label: "worldwide Huawei ICT 2026 · Cloud Track" },
       { value: "~10%", label: "FinOps savings on first test" },
       { value: "INPT", label: "Cloud, IoT & distributed systems" },
     ],
