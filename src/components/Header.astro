@@ -9,36 +9,51 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = copy(locale);
-const other: Locale = locale === 'fr' ? 'en' : 'fr';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 let path = Astro.url.pathname;
 if (base && path.startsWith(base)) {
   path = path.slice(base.length) || '/';
 }
 const rest = path.replace(/^\/(fr|en)/, '') || '/';
-const otherHref = getRelativeLocaleUrl(other, rest);
+const frHref = getRelativeLocaleUrl('fr', rest);
+const enHref = getRelativeLocaleUrl('en', rest);
 const homeHref = getRelativeLocaleUrl(locale, '/');
 ---
 
-<header class="border-b border-line">
-  <div class="mx-auto flex max-w-3xl items-baseline justify-between gap-4 px-5 py-5">
-    <a href={homeHref} class="text-sm font-medium tracking-tight text-ink">
-      TOUNLI Aboubaker
+<header class="sticky top-0 z-20 border-b border-line/80 bg-bg/80 backdrop-blur-md">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4">
+    <a href={homeHref} class="text-sm font-semibold tracking-tight text-ink">
+      AT<span class="text-accent">.</span>
     </a>
-    <nav class="flex flex-wrap items-center justify-end gap-x-4 gap-y-1 text-sm text-mute">
-      <a class="hover:text-ink" href={`${homeHref}#about`}>{t.nav.about}</a>
-      <a class="hover:text-ink" href={`${homeHref}#experience`}>{t.nav.experience}</a>
-      <a class="hover:text-ink" href={`${homeHref}#projects`}>{t.nav.projects}</a>
-      <a class="hover:text-ink" href={`${homeHref}#skills`}>{t.nav.skills}</a>
-      <a class="hover:text-ink" href={`${homeHref}#contact`}>{t.nav.contact}</a>
-      <a
-        class="font-mono text-xs uppercase tracking-wider text-accent hover:text-ink"
-        href={otherHref}
-        data-locale-switch={other}
-      >
-        {other}
-      </a>
+    <nav class="hidden items-center gap-6 text-sm text-mute md:flex">
+      <a class="transition hover:text-ink" href={`${homeHref}#about`}>{t.nav.about}</a>
+      <a class="transition hover:text-ink" href={`${homeHref}#experience`}>{t.nav.experience}</a>
+      <a class="transition hover:text-ink" href={`${homeHref}#projects`}>{t.nav.projects}</a>
+      <a class="transition hover:text-ink" href={`${homeHref}#skills`}>{t.nav.skills}</a>
+      <a class="transition hover:text-ink" href={`${homeHref}#contact`}>{t.nav.contact}</a>
     </nav>
+    <div class="flex items-center rounded-full border border-line bg-surface p-0.5 text-xs font-medium">
+      <a
+        href={frHref}
+        class:list={[
+          'rounded-full px-2.5 py-1',
+          locale === 'fr' ? 'bg-accent text-bg' : 'text-mute hover:text-ink',
+        ]}
+        data-locale-switch="fr"
+      >
+        FR
+      </a>
+      <a
+        href={enHref}
+        class:list={[
+          'rounded-full px-2.5 py-1',
+          locale === 'en' ? 'bg-accent text-bg' : 'text-mute hover:text-ink',
+        ]}
+        data-locale-switch="en"
+      >
+        EN
+      </a>
+    </div>
   </div>
 </header>
 

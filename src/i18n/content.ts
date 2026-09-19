@@ -20,7 +20,6 @@ export const nav = {
     projects: "Projets",
     skills: "Compétences",
     contact: "Contact",
-    caseStudy: "Étude de cas",
   },
   en: {
     about: "About",
@@ -28,28 +27,41 @@ export const nav = {
     projects: "Projects",
     skills: "Skills",
     contact: "Contact",
-    caseStudy: "Case study",
   },
 } as const;
 
 export const home = {
   fr: {
-    role: "Élève ingénieur Cloud & DevOps — stage PFE",
+    available: "Ouvert au PFE",
+    role: "Cloud, DevOps, SRE & platform engineering",
     location: "Rabat, Maroc",
     about:
-      "Dernière année à l’INPT, filière Systèmes ubiquitaires et distribués, Cloud et IoT. Je cherche un stage de fin d’études en Cloud, DevOps, SRE ou platform engineering. J’aime les systèmes que l’on peut expliquer de bout en bout : du commit jusqu’au contrôleur d’admission.",
-    cv: "CV (PDF)",
+      "Dernière année à l’INPT (systèmes distribués, Cloud et IoT). Stage FinOps chez Clever Cloud Morocco, 3e prix mondial Huawei ICT Competition (Cloud). Je cherche un stage de fin d’études.",
+    cv: "Télécharger le CV",
     github: "GitHub",
     linkedin: "LinkedIn",
+    viewCode: "Code source",
+    highlights: [
+      { value: "3e", label: "prix mondial Huawei ICT · Cloud" },
+      { value: "~10%", label: "économies FinOps, premier test" },
+      { value: "INPT", label: "Cloud, IoT & systèmes distribués" },
+    ],
   },
   en: {
-    role: "Cloud & DevOps engineering student — seeking a PFE internship",
+    available: "Open to PFE internships",
+    role: "Cloud, DevOps, SRE & platform engineering",
     location: "Rabat, Morocco",
     about:
-      "Final-year student at INPT, specializing in Ubiquitous and Distributed Systems, Cloud and IoT. I am looking for a graduation internship in Cloud, DevOps, SRE, or platform engineering. I care about systems you can explain end to end: from a commit to the admission controller.",
-    cv: "Resume (PDF)",
+      "Final-year INPT student (distributed systems, Cloud and IoT). FinOps intern at Clever Cloud Morocco, 3rd worldwide at the Huawei ICT Competition (Cloud). Looking for a graduation internship.",
+    cv: "Download resume",
     github: "GitHub",
     linkedin: "LinkedIn",
+    viewCode: "Source code",
+    highlights: [
+      { value: "3rd", label: "worldwide Huawei ICT · Cloud" },
+      { value: "~10%", label: "FinOps savings on first test" },
+      { value: "INPT", label: "Cloud, IoT & distributed systems" },
+    ],
   },
 } as const;
 
@@ -109,62 +121,68 @@ export const projects = {
     {
       slug: "devsecops-gitops",
       title: "Pipeline DevSecOps × GitOps",
-      stack: "GitHub Actions, SonarCloud, Trivy, Argo CD, Kubernetes, Docker",
-      caseStudy: true,
+      tags: ["GitHub Actions", "Trivy", "Argo CD", "Kubernetes", "Docker"],
       points: [
-        "Pipeline CI qui automatise tests, analyse statique, scan d’image et publication Docker, sans déployer directement sur le cluster.",
-        "Livraison continue par GitOps : un dépôt de manifests comme source de vérité, synchronisé par Argo CD, avec contrôles d’admission et observabilité.",
+        "CI : tests, scan d’image, publication Docker — sans déployer directement sur le cluster.",
+        "GitOps : manifests comme source de vérité, synchronisés par Argo CD.",
+      ],
+      repos: [
+        { label: "App + CI", href: "https://github.com/aboubakertounli/DevSecOps-x-GitOps" },
+        { label: "GitOps", href: "https://github.com/aboubakertounli/DevSecOps-x-GitOps-gitops" },
       ],
     },
     {
       slug: "aws-microservices",
-      title: "Architecture microservices et CI/CD sur AWS",
-      stack: "ECS, ECR, ALB, CodePipeline, Docker, Node.js",
-      caseStudy: false,
+      title: "Microservices & CI/CD sur AWS",
+      tags: ["ECS", "ECR", "ALB", "CodePipeline", "Docker", "Node.js"],
       points: [
-        "Découpage d’un monolithe en microservices conteneurisés sur Amazon ECS, images dans ECR, trafic via un Application Load Balancer.",
-        "Pipeline CodeCommit / CodeDeploy / CodePipeline avec déploiements blue/green pour éviter les interruptions.",
+        "Monolithe découpé en services sur ECS, images dans ECR, trafic via ALB.",
+        "Pipeline CodeCommit / CodeDeploy / CodePipeline, déploiements blue/green.",
       ],
+      repos: [],
     },
     {
       slug: "openstack",
-      title: "Cloud privé avec OpenStack",
-      stack: "OpenStack, Terraform, virtualisation, réseaux",
-      caseStudy: false,
+      title: "Cloud privé OpenStack",
+      tags: ["OpenStack", "Terraform", "Réseaux"],
       points: [
-        "Déploiement All-in-One couvrant virtualisation, gestion des ressources, réseaux et groupes de sécurité, puis automatisation de la configuration avec Terraform.",
+        "All-in-One : virtualisation, ressources, réseaux, groupes de sécurité, puis Terraform.",
       ],
+      repos: [],
     },
   ],
   en: [
     {
       slug: "devsecops-gitops",
       title: "DevSecOps × GitOps pipeline",
-      stack: "GitHub Actions, SonarCloud, Trivy, Argo CD, Kubernetes, Docker",
-      caseStudy: true,
+      tags: ["GitHub Actions", "Trivy", "Argo CD", "Kubernetes", "Docker"],
       points: [
-        "CI pipeline that automates tests, static analysis, image scanning, and Docker publishing — and never deploys straight to the cluster.",
-        "Continuous delivery through GitOps: a manifests repo as source of truth, synced by Argo CD, with admission control and observability.",
+        "CI: tests, image scanning, Docker publish — never deploys straight to the cluster.",
+        "GitOps: manifests as source of truth, synced by Argo CD.",
+      ],
+      repos: [
+        { label: "App + CI", href: "https://github.com/aboubakertounli/DevSecOps-x-GitOps" },
+        { label: "GitOps", href: "https://github.com/aboubakertounli/DevSecOps-x-GitOps-gitops" },
       ],
     },
     {
       slug: "aws-microservices",
-      title: "Microservices architecture and CI/CD on AWS",
-      stack: "ECS, ECR, ALB, CodePipeline, Docker, Node.js",
-      caseStudy: false,
+      title: "Microservices & CI/CD on AWS",
+      tags: ["ECS", "ECR", "ALB", "CodePipeline", "Docker", "Node.js"],
       points: [
-        "Split a monolith into containerized microservices on Amazon ECS, storing images in ECR and routing traffic through an Application Load Balancer.",
-        "Automated pipeline with CodeCommit, CodeDeploy, and CodePipeline, using blue/green deployments to avoid downtime.",
+        "Split a monolith into ECS services, images in ECR, traffic through an ALB.",
+        "CodeCommit / CodeDeploy / CodePipeline with blue/green deployments.",
       ],
+      repos: [],
     },
     {
       slug: "openstack",
-      title: "Private cloud with OpenStack",
-      stack: "OpenStack, Terraform, virtualization, networking",
-      caseStudy: false,
+      title: "OpenStack private cloud",
+      tags: ["OpenStack", "Terraform", "Networking"],
       points: [
-        "All-in-one OpenStack private cloud covering virtualization, resource management, networking, and security groups, then automated configuration with Terraform.",
+        "All-in-one: virtualization, resources, networks, security groups, then Terraform.",
       ],
+      repos: [],
     },
   ],
 } as const;
@@ -262,71 +280,14 @@ export const education = {
 
 export const contact = {
   fr: {
-    lead: "Ouvert aux stages PFE à partir de 2027, au Maroc ou à distance.",
+    lead: "Ouvert aux stages PFE, au Maroc ou à distance.",
     email: "Email",
     phone: "Téléphone",
   },
   en: {
-    lead: "Open to PFE internships from 2027, in Morocco or remote.",
+    lead: "Open to PFE internships, in Morocco or remote.",
     email: "Email",
     phone: "Phone",
-  },
-} as const;
-
-export const caseStudy = {
-  fr: {
-    kicker: "Projet",
-    title: "Pipeline DevSecOps × GitOps, appliqué à une API Node.js",
-    stack: "GitHub Actions · SonarCloud · Trivy · GHCR · Kustomize · Argo CD · Kyverno · Prometheus / Grafana",
-    intro:
-      "Une API CRUD volontairement simple (Express) sert de charge utile. Le travail réel est le chemin d’un commit jusqu’à un cluster kind local : tests, SAST, scan d’image, publication, bump de tag GitOps, synchronisation Argo CD, politiques d’admission, métriques.",
-    reposLabel: "Dépôts",
-    sections: [
-      {
-        title: "Séparation des responsabilités",
-        body: "Le dépôt applicatif construit et pousse une image. Le dépôt GitOps est la source de vérité des manifests. CI n’a pas de kubeconfig. Argo CD est le seul reconcilier.",
-      },
-      {
-        title: "Contrôles dans CI",
-        body: "GitHub Actions enchaîne tests unitaires, SonarCloud, Trivy (filesystem puis image). Un finding HIGH non corrigé fait échouer le job. L’image part sur GHCR avec un tag immuable (SHA), jamais latest.",
-      },
-      {
-        title: "Livraison GitOps",
-        body: "Le dernier job CI exécute kustomize edit set image dans le dépôt de config et commit. Argo CD détecte le drift, se synchronise, Kyverno admet ou refuse le Pod.",
-      },
-      {
-        title: "Preuves visuelles",
-        body: "Les captures (run Actions, sync Argo, dashboard Grafana, refus Kyverno) seront ajoutées ici au fil des jalons — pas comme vitrine, comme journal de ce qui a réellement tourné.",
-      },
-    ],
-    back: "Retour au profil",
-  },
-  en: {
-    kicker: "Project",
-    title: "DevSecOps × GitOps pipeline, applied to a Node.js API",
-    stack: "GitHub Actions · SonarCloud · Trivy · GHCR · Kustomize · Argo CD · Kyverno · Prometheus / Grafana",
-    intro:
-      "An intentionally boring Express CRUD API is the payload. The actual work is the path from a commit to a local kind cluster: tests, SAST, image scan, publish, GitOps tag bump, Argo CD sync, admission policy, metrics.",
-    reposLabel: "Repositories",
-    sections: [
-      {
-        title: "Split of responsibility",
-        body: "The app repo builds and pushes an image. The GitOps repo is the source of truth for manifests. CI has no kubeconfig. Argo CD is the only reconciler.",
-      },
-      {
-        title: "Controls in CI",
-        body: "GitHub Actions runs unit tests, SonarCloud, then Trivy (filesystem and image). An unfixed HIGH finding fails the job. The image is published to GHCR with an immutable SHA tag, never latest.",
-      },
-      {
-        title: "GitOps delivery",
-        body: "The last CI job runs kustomize edit set image in the config repo and commits. Argo CD sees the drift, syncs, and Kyverno admits or denies the Pod.",
-      },
-      {
-        title: "Visual evidence",
-        body: "Screenshots (Actions run, Argo sync, Grafana dashboard, Kyverno deny) land here as milestones complete — a log of what actually ran, not a marketing page.",
-      },
-    ],
-    back: "Back to profile",
   },
 } as const;
 
@@ -354,7 +315,6 @@ export function copy(locale: Locale) {
     languages: languages[locale],
     education: education[locale],
     contact: contact[locale],
-    caseStudy: caseStudy[locale],
     links,
   };
 }

@@ -13,6 +13,10 @@ export default defineConfig({
       redirectToDefaultLocale: false,
     },
   },
+  redirects: {
+    "/fr/projects/devsecops-gitops": "/portfolio/fr/",
+    "/en/projects/devsecops-gitops": "/portfolio/en/",
+  },
   vite: {
     plugins: [tailwindcss()],
   },

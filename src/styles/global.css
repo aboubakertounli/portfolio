@@ -1,18 +1,21 @@
-@import "@fontsource/ibm-plex-sans/400.css";
-@import "@fontsource/ibm-plex-sans/500.css";
-@import "@fontsource/ibm-plex-sans/600.css";
-@import "@fontsource/ibm-plex-mono/400.css";
-@import "@fontsource/ibm-plex-mono/500.css";
+@import "@fontsource/outfit/400.css";
+@import "@fontsource/outfit/500.css";
+@import "@fontsource/outfit/600.css";
+@import "@fontsource/outfit/700.css";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
-  --color-ink: #eceae4;
-  --color-mute: #9c9a93;
-  --color-line: #26251f;
-  --color-paper: #10100e;
-  --color-accent: #d7b07a;
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-bg: #07090d;
+  --color-surface: #10141c;
+  --color-ink: #f3f6fa;
+  --color-mute: #8b96a8;
+  --color-line: #1c2430;
+  --color-accent: #3ee0b1;
+  --color-accent-dim: #16352c;
 }
 
 html {
@@ -21,12 +24,15 @@ html {
 }
 
 body {
-  background: var(--color-paper);
+  margin: 0;
+  background-color: var(--color-bg);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 22px 22px;
   color: var(--color-ink);
   font-family: var(--font-sans);
 }
 
 ::selection {
-  background: #3a3428;
-  color: var(--color-ink);
+  background: var(--color-accent-dim);
+  color: var(--color-accent);
 }
