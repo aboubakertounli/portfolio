@@ -10,7 +10,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=3001
 COPY package.json package-lock.json ./
-RUN npm ci --omit=dev && npm cache clean --force
+RUN npm ci --omit=dev && npm cache clean --force && rm -rf /usr/local/lib/node_modules/npm /usr/local/bin/npm /usr/local/bin/npx
 COPY server ./server
 COPY --from=build /app/dist ./dist
 USER node
