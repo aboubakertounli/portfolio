@@ -1,0 +1,10 @@
+replicaCount: 1
+
+image:
+  repository: acrportfolio81785.azurecr.io/portfolio
+  tag: "6"
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 3001
